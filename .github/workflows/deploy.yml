@@ -1,0 +1,67 @@
+name: Deploy VitePress Site to Pages
+
+on:
+  push:
+    branches: [master]
+
+# 設定token存取權限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 僅允許同時進行一次部署，跳過正在執行與最新佇列的執行佇列
+# 但是，不取消正在進行的執行，因為我們希望允許這些生產部署完成
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # 建置工作
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 如果未啟用 lastUpdated, 則不需要
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2 # 安裝pnpm並新增到環境變數
+        with:
+          version: 8.6.12 # 指定需要的 pnpm 版本
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm # 設定快取
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3 # 在工作流程自動設定GitHubPages
+
+      - name: Install dependencies
+        run: pnpm install # 安裝依賴
+
+      - name: Build with VitePress
+        run: |
+          pnpm run docs:build # 啟動專案
+          touch .nojekyll # 通知githubpages不要使用Jekyll處理這個站點，不知道為何不生效，就手動處理了
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3 # <--- 這裡更新了版本
+        with:
+          path: .vitepress/dist # 指定上傳的路徑，目前是根目錄，如果是docs需要加上docs/的前綴
+
+  # 部署工作
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # 從後續的輸出中取得部署後的頁面URL
+    needs: build # 在build後面完成
+    runs-on: ubuntu-latest # 執行在最新版本的ubuntu上
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment # 指定id
+        uses: actions/deploy-pages@v4 # <--- 這裡更新了版本
