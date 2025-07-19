@@ -3,13 +3,15 @@ import { set_sidebar } from "./utils/auto_sidebar.mjs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/LeafNode-Docs/",
+  head: [["link", { rel: "icon", href: "/LeafNode-Docs/logo.svg" }]],
   title: "LeafNode Docs",
   description:
     "My personal knowledge repository, meticulously organized to capture and grow my understanding. Each entry is a 'leaf' in this ever-expanding tree of insights, powered by VitePress.",
   themeConfig: {
     outlineTitle: "文章目錄",
     outline: [2, 6],
-    logo: "/logo.png",
+    logo: "/logo.svg",
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
