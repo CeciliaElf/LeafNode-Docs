@@ -7,7 +7,7 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/LeafNode-Docs/logo.svg" }]],
   title: "LeafNode Docs",
   description:
-    "My personal knowledge repository, meticulously organized to capture and grow my understanding. Each entry is a 'leaf' in this ever-expanding tree of insights, powered by VitePress.",
+    "我的個人知識庫。",
   themeConfig: {
     outlineTitle: "文章目錄",
     outline: [2, 6],
@@ -18,12 +18,30 @@ export default defineConfig({
         text: "主界面",
         items: [
           { text: "首頁", link: "/" },
-          { text: "markdown示例", link: "/markdown-examples" },
         ],
       },
-      { text: "樣例", link: "/markdown-examples" },
-      { text: "自動生成側邊欄1", link: "/backend/java" },
-      { text: "自動生成側邊欄2", link: "/frontend/electron" },
+      {
+        text: "後端",
+        items: [
+          { text: "Java", link: "/backend/java" },
+          { text: "Go", link: "/backend/go" },
+        ],
+      },
+      {
+        text: "前端",
+        items: [
+          { text: "JavaScript", link: "/frontend/javascript" },
+          { text: "Vue", link: "/frontend/vue" },
+          { text: "Electron", link: "/frontend/electron" },
+          { text: "React", link: "/frontend/react" },
+        ],
+      },
+      {
+        text: "專案學習筆記",
+        items: [
+          { text: "Talkie", link: "/project_learn/talkie" },
+        ],
+      },
     ],
 
     // sidebar: [
@@ -45,6 +63,7 @@ export default defineConfig({
     sidebar: {
       "/backend/java": set_sidebar("/backend/java"),
       "/frontend/electron": set_sidebar("/frontend/electron"),
+      "/project_learn/": set_sidebar("/project_learn"),
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/CeciliaElf" }],

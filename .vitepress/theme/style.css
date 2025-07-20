@@ -43,31 +43,48 @@
  *   in custom container, badges, etc.
  * -------------------------------------------------------------------------- */
 
+/**
+ * 柔和綠色主題色彩變量
+ * -------------------------------------------------------------------------- */
 :root {
-  --vp-c-default-1: var(--vp-c-gray-1);
-  --vp-c-default-2: var(--vp-c-gray-2);
-  --vp-c-default-3: var(--vp-c-gray-3);
-  --vp-c-default-soft: var(--vp-c-gray-soft);
+  /* 基本綠色調色板 */
+  --vp-c-green-1: #4caf50;
+  --vp-c-green-2: #66bb6a;
+  --vp-c-green-3: #81c784;
+  --vp-c-green-soft: rgba(76, 175, 80, 0.14);
+  
+  /* 淺綠色調色板 */
+  --vp-c-light-green-1: #7cb342;
+  --vp-c-light-green-2: #8bc34a;
+  --vp-c-light-green-3: #9ccc65;
+  --vp-c-light-green-soft: rgba(139, 195, 74, 0.14);
+  
+  /* 色彩全局配置 */
+  --vp-c-default-1: var(--vp-c-green-1);
+  --vp-c-default-2: var(--vp-c-green-2);
+  --vp-c-default-3: var(--vp-c-green-3);
+  --vp-c-default-soft: var(--vp-c-green-soft);
 
-  --vp-c-brand-1: var(--vp-c-indigo-1);
-  --vp-c-brand-2: var(--vp-c-indigo-2);
-  --vp-c-brand-3: var(--vp-c-indigo-3);
-  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+  --vp-c-brand-1: var(--vp-c-green-1);
+  --vp-c-brand-2: var(--vp-c-green-2);
+  --vp-c-brand-3: var(--vp-c-green-3);
+  --vp-c-brand-soft: var(--vp-c-green-soft);
 
-  --vp-c-tip-1: var(--vp-c-brand-1);
-  --vp-c-tip-2: var(--vp-c-brand-2);
-  --vp-c-tip-3: var(--vp-c-brand-3);
-  --vp-c-tip-soft: var(--vp-c-brand-soft);
+  --vp-c-tip-1: var(--vp-c-green-1);
+  --vp-c-tip-2: var(--vp-c-green-2);
+  --vp-c-tip-3: var(--vp-c-green-3);
+  --vp-c-tip-soft: var(--vp-c-green-soft);
 
-  --vp-c-warning-1: var(--vp-c-yellow-1);
-  --vp-c-warning-2: var(--vp-c-yellow-2);
-  --vp-c-warning-3: var(--vp-c-yellow-3);
-  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+  /* 保留黃色和紅色作為警告和危險提示，但稍微調整為更柔和的色調 */
+  --vp-c-warning-1: #ffa726;
+  --vp-c-warning-2: #ffb74d;
+  --vp-c-warning-3: #ffcc80;
+  --vp-c-warning-soft: rgba(255, 167, 38, 0.14);
 
-  --vp-c-danger-1: var(--vp-c-red-1);
-  --vp-c-danger-2: var(--vp-c-red-2);
-  --vp-c-danger-3: var(--vp-c-red-3);
-  --vp-c-danger-soft: var(--vp-c-red-soft);
+  --vp-c-danger-1: #ef5350;
+  --vp-c-danger-2: #e57373;
+  --vp-c-danger-3: #ef9a9a;
+  --vp-c-danger-soft: rgba(239, 83, 80, 0.14);
 }
 
 /**
@@ -76,14 +93,14 @@
 
 :root {
   --vp-button-brand-border: transparent;
-  --vp-button-brand-text: var(--vp-c-white);
-  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-text: var(--vp-c-white, #ffffff);
+  --vp-button-brand-bg: var(--vp-c-green-2);
   --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-hover-text: var(--vp-c-white);
-  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-hover-text: var(--vp-c-white, #ffffff);
+  --vp-button-brand-hover-bg: var(--vp-c-green-1);
   --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-active-text: var(--vp-c-white, #ffffff);
+  --vp-button-brand-active-bg: var(--vp-c-green-1);
 }
 
 /**
@@ -94,14 +111,14 @@
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(
     120deg,
-    #bd34fe 30%,
-    #41d1ff
+    #81c784 30%,
+    #4caf50
   );
 
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
-    #bd34fe 50%,
-    #47caff 50%
+    #AED581 50%,
+    #A5D6A7 50%
   );
   --vp-home-hero-image-filter: blur(44px);
 }
@@ -125,8 +142,8 @@
 :root {
   --vp-custom-block-tip-border: transparent;
   --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-bg: var(--vp-c-green-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-green-soft);
 }
 
 /**
@@ -134,6 +151,28 @@
  * -------------------------------------------------------------------------- */
 
 .DocSearch {
-  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+  --docsearch-primary-color: var(--vp-c-green-1) !important;
 }
 
+/**
+ * 額外的綠色主題元素
+ * -------------------------------------------------------------------------- */
+:root {
+  /* 導航欄和側邊欄 */
+  --vp-nav-bg-color: rgba(129, 199, 132, 0.08);
+  --vp-sidebar-bg-color: rgba(129, 199, 132, 0.04);
+  
+  /* 鏈接顏色 */
+  --vp-c-text-link: var(--vp-c-green-1);
+  --vp-c-text-link-hover: var(--vp-c-green-2);
+  
+  /* 代碼區塊 */
+  --vp-code-block-bg: rgba(76, 175, 80, 0.05);
+  --vp-code-tab-divider: var(--vp-c-green-3);
+  --vp-code-tab-active-bg: var(--vp-c-green-soft);
+  --vp-code-tab-active-text: var(--vp-c-green-1);
+  
+  /* 表格 */
+  --vp-c-divider: rgba(76, 175, 80, 0.2);
+  --vp-c-border: rgba(76, 175, 80, 0.5);
+}
