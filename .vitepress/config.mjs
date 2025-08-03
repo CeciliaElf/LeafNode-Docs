@@ -6,8 +6,7 @@ export default defineConfig({
   base: "/LeafNode-Docs/",
   head: [["link", { rel: "icon", href: "/LeafNode-Docs/logo.svg" }]],
   title: "LeafNode Docs",
-  description:
-    "我的個人知識庫。",
+  description: "我的個人知識庫。",
   themeConfig: {
     outlineTitle: "文章目錄",
     outline: [2, 6],
@@ -16,9 +15,7 @@ export default defineConfig({
     nav: [
       {
         text: "主界面",
-        items: [
-          { text: "首頁", link: "/" },
-        ],
+        items: [{ text: "首頁", link: "/" }],
       },
       {
         text: "後端",
@@ -38,9 +35,11 @@ export default defineConfig({
       },
       {
         text: "專案學習筆記",
-        items: [
-          { text: "Talkie", link: "/project_learn/talkie" },
-        ],
+        items: [{ text: "Talkie", link: "/project_learn/talkie" }],
+      },
+      {
+        text: "其他",
+        items: [{ text: "GitHub", link: "/others/github" }],
       },
     ],
 
