@@ -62,7 +62,8 @@ export default defineConfig({
     sidebar: {
       "/backend/java": set_sidebar("/backend/java"),
       "/frontend/electron": set_sidebar("/frontend/electron"),
-      "/project_learn/": set_sidebar("/project_learn"),
+      "/project_learn/talkie": set_sidebar("/project_learn/talkie"),
+      "/others/github": set_sidebar("/others/github"),
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/CeciliaElf" }],
